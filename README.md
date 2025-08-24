@@ -11,7 +11,7 @@ Just import the `ActionCode.AwaitableSystem` namespace and use any function from
 
 ### Wait Functions
 
-Similar to corroutines `WaitUntil` and `WaitWhile`, you can use `WaitUntilAsync()` or `WaitWhileAsync` functions:
+Similar to `WaitUntil` and `WaitWhile` coroutines, you can use `WaitUntilAsync()` and `WaitWhileAsync` functions:
 
 ```csharp
 using UnityEngine;
@@ -40,7 +40,7 @@ namespace YourCompany.YourGame.YourSystem
 
 ### Lerp Functions
 
-You can asynchronously lerp two numbers: 
+You can asynchronously linear interpolate two numbers: 
 
 ```csharp
 using UnityEngine;
@@ -55,9 +55,9 @@ namespace YourCompany.YourGame.YourSystem
         {
             Debug.Log("Start to lerp...");
 
-            // Linear interpolate between 0 and 8 in 4 seconds, using 1 as speed.
+            // Linear interpolate between 1 and 8 in 4 seconds, using 1 as speed.
             await AwaitableUtility.LerpAsync(
-                start: 0f,
+                start: 1f,
                 final: 8f,
                 duration: 4f,
                 ShowLerpValue,
@@ -73,7 +73,7 @@ namespace YourCompany.YourGame.YourSystem
 }
 ```
 
-Similarly, you can also Lerp colors using the overridden `LerpAsync()` function.
+Similarly, you can also Lerp colors using the overridden `LerpAsync(Color)` function.
 
 If you want to Lerp other values type, use the generic `AwaitableUtility.InterpolateAsync<T>()` function, providing the get and set value callbacks.
 
