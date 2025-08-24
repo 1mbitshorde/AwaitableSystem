@@ -37,6 +37,17 @@ namespace ActionCode.AwaitableSystem
             await WaitWhileAsync(() => animation.isPlaying);
 
         /// <summary>
+        /// Waits asynchronously for the given number of <paramref name="frames"/>
+        /// </summary>
+        /// <param name="frames">The frames to wait for.</param>
+        /// <returns>An asynchronously operation.</returns>
+        public static async Awaitable WaitForFramesAsync(uint frames)
+        {
+            uint current = 0;
+            while (current++ < frames) await Awaitable.NextFrameAsync();
+        }
+
+        /// <summary>
         /// Linearly interpolates between <paramref name="start"/> and <paramref name="final"/> by <paramref name="duration"/>.
         /// </summary>
         /// <param name="start">The start value.</param>
