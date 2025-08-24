@@ -5,12 +5,77 @@
 * Current version: **0.1.0**
 * License: **MIT**
 
-## Summary
-
-Code Awaitables like old corroutines.
-
 ## How To Use
 
+Just import the `ActionCode.AwaitableSystem` namespace and use any function from [AwaitableUtility](/Runtime/AwaitableUtility.cs) static class.
+
+### Wait Functions
+
+Similar to corroutines `WaitUntil` and `WaitWhile`, you can use `WaitUntilAsync()` or `WaitWhileAsync` functions:
+
+```csharp
+using UnityEngine;
+using ActionCode.AwaitableSystem;
+
+namespace YourCompany.YourGame.YourSystem
+{
+    [DisallowMultipleComponent]
+    public sealed class Tester : MonoBehaviour
+    {
+        public bool IsReady { get; private set; }
+        public bool IsLoading { get; private set; }
+
+        private async void LoadAsync()
+        {
+            Debug.Log("Start to load...");
+            
+            await AwaitableUtility.WaitUntilAsync(() => IsReady);
+            await AwaitableUtility.WaitWhileAsync(() => IsLoading);
+            
+            Debug.Log("Loading is done!");
+        }
+    }
+}
+```
+
+### Lerp Functions
+
+You can asynchronously lerp two numbers: 
+
+```csharp
+using UnityEngine;
+using ActionCode.AwaitableSystem;
+
+namespace YourCompany.YourGame.YourSystem
+{
+    [DisallowMultipleComponent]
+    public sealed class Tester : MonoBehaviour
+    {
+        private async void LerpAsync()
+        {
+            Debug.Log("Start to lerp...");
+
+            // Linear interpolate between 0 and 8 in 4 seconds, using 1 as speed.
+            await AwaitableUtility.LerpAsync(
+                start: 0f,
+                final: 8f,
+                duration: 4f,
+                ShowLerpValue,
+                speed: 1f
+            );
+            
+            Debug.Log("Lerp is done!");
+        }
+
+		// Your game code should use this value to do something.
+        private static void ShowLerpValue(float value) => Debug.Log($"Lerp Value: {value}");
+    }
+}
+```
+
+Similarly, you can also Lerp colors using the overridden `LerpAsync()` function.
+
+If you want to Lerp other values type, use the generic `AwaitableUtility.InterpolateAsync<T>()` function, providing the get and set value callbacks.
 
 ## Installation
 
