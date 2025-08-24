@@ -1,22 +1,19 @@
 {
-  "name": "com.actioncode.[packagename]",
-  "displayName": "ActionCode-[PackageName]",
+  "name": "com.actioncode.awaitable-system",
+  "displayName": "ActionCode-Awaitable System",
   "version": "0.1.0",
   "unity": "2022.3",
-  "description": "This package contains [...].",
-  "keywords": [
-    "",
-    ""
-  ],
+  "description": "This package contains utility code for Awaitable.",
+  "keywords": ["Awaitable"],
   "dependencies": {},
   "license": "MIT",
-  "homepage": "https://github.com/HyagoOliveira/[PACKAGE]#readme",
+  "homepage": "https://github.com/HyagoOliveira/AwaitableSystem#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HyagoOliveira/[PACKAGE].git"
+    "url": "https://github.com/HyagoOliveira/AwaitableSystem.git"
   },
-  "documentationUrl": "https://github.com/HyagoOliveira/[PACKAGE]#readme",
-  "changelogUrl": "https://github.com/HyagoOliveira/[PACKAGE]/CHANGELOG.md",
+  "documentationUrl": "https://github.com/HyagoOliveira/AwaitableSystem#readme",
+  "changelogUrl": "https://github.com/HyagoOliveira/AwaitableSystem/CHANGELOG.md",
   "author": {
     "name": "Hyago Oliveira",
     "email": "hyagogow@gmail.com"
