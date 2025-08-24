@@ -34,22 +34,35 @@ namespace ActionCode.AwaitableSystem
         /// <param name="start">The start value.</param>
         /// <param name="final">The final value.</param>
         /// <param name="duration">The entire interpolation duration.</param>
-        /// <param name="onUpdate">The update function. Use it to get the interpolation value.</param>
-        /// <returns></returns>
-        public static async Awaitable LerpAsync(float start, float final, float duration, Action<float> onUpdate)
+        /// <param name="getValue">The update function. Use it to get the interpolation value.</param>
+        /// <param name="speed">The interpolation speed.</param>
+        /// <returns>An asynchronously lerp operation.</returns>
+        public static async Awaitable LerpAsync(float start, float final, float duration, Action<float> getValue, float speed = 1F) =>
+            await InterpolateAsync(duration, getValue, value => Mathf.Lerp(start, final, value), speed);
+
+        /// <summary>
+        /// Linearly interpolates using <paramref name="setValue"/> method by <paramref name="duration"/>.
+        /// </summary>
+        /// <typeparam name="T">The interpolation type.</typeparam>
+        /// <param name="duration">The entire interpolation duration.</param>
+        /// <param name="getValue">The get value function. Use it to get the interpolation value.</param>
+        /// <param name="setValue">The set value function. Use it to set the interpolation value.</param>
+        /// <param name="speed">The interpolation speed.</param>
+        /// <returns>An asynchronously interpolation operation.</returns>
+        public static async Awaitable InterpolateAsync<T>(float duration, Action<T> getValue, Func<float, T> setValue, float speed)
         {
             var currentTime = 0F;
             while (currentTime < duration)
             {
                 var step = currentTime / duration;
-                var value = Mathf.Lerp(start, final, step);
+                var value = setValue(step);
 
-                onUpdate?.Invoke(value);
-                currentTime += Time.deltaTime;
+                getValue?.Invoke(value);
+                currentTime += Time.deltaTime * speed;
 
                 await Awaitable.NextFrameAsync();
             }
-            onUpdate?.Invoke(final);
+            getValue?.Invoke(setValue(1F));
         }
     }
 }
