@@ -2,7 +2,7 @@
 
 * Utility code for Awaitable
 * Unity minimum version: **6000.1**
-* Current version: **0.1.0**
+* Current version: **1.0.0**
 * License: **MIT**
 
 ## How To Use

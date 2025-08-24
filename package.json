@@ -1,11 +1,12 @@
 {
   "name": "com.actioncode.awaitable-system",
   "displayName": "ActionCode-Awaitable System",
-  "version": "0.1.0",
-  "unity": "2022.3",
+  "version": "1.0.0",
+  "unity": "6000.1",
   "description": "This package contains utility code for Awaitable.",
-  "keywords": ["Awaitable"],
-  "dependencies": {},
+  "keywords": [
+    "Awaitable"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/HyagoOliveira/AwaitableSystem#readme",
   "repository": {
