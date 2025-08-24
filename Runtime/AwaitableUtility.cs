@@ -41,6 +41,18 @@ namespace ActionCode.AwaitableSystem
             await InterpolateAsync(duration, getValue, value => Mathf.Lerp(start, final, value), speed);
 
         /// <summary>
+        /// Linearly interpolates between <paramref name="start"/> and <paramref name="final"/> colors by <paramref name="duration"/>.
+        /// </summary>
+        /// <param name="start">The start color.</param>
+        /// <param name="final">The final color.</param>
+        /// <param name="duration">The entire color interpolation duration.</param>
+        /// <param name="getValue">The update function. Use it to get the interpolation color.</param>
+        /// <param name="speed">The color interpolation speed.</param>
+        /// <returns>An asynchronously color lerp operation.</returns>
+        public static async Awaitable LerpAsync(Color start, Color final, float duration, Action<Color> getValue, float speed = 1F) =>
+            await InterpolateAsync(duration, getValue, value => Color.Lerp(start, final, value), speed);
+
+        /// <summary>
         /// Linearly interpolates using <paramref name="setValue"/> method by <paramref name="duration"/>.
         /// </summary>
         /// <typeparam name="T">The interpolation type.</typeparam>
