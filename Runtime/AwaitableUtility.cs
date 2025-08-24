@@ -17,5 +17,15 @@ namespace ActionCode.AwaitableSystem
         {
             while (!condition()) await Awaitable.NextFrameAsync();
         }
+
+        /// <summary>
+        /// Waits asynchronously until the given condition is false.
+        /// </summary>
+        /// <param name="condition">A boolean condition.</param>
+        /// <returns>An asynchronously operation.</returns>
+        public static async Awaitable WaitWhileAsync(Func<bool> condition)
+        {
+            while (condition()) await Awaitable.NextFrameAsync();
+        }
     }
 }
