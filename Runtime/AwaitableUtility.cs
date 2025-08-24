@@ -29,6 +29,14 @@ namespace ActionCode.AwaitableSystem
         }
 
         /// <summary>
+        /// Waits asynchronously until the given animation is playing.
+        /// </summary>
+        /// <param name="animation">The playing animation.</param>
+        /// <returns>An asynchronously operation.</returns>
+        public static async Awaitable WaitWhilePlayingAsync(Animation animation) =>
+            await WaitWhileAsync(() => animation.isPlaying);
+
+        /// <summary>
         /// Linearly interpolates between <paramref name="start"/> and <paramref name="final"/> by <paramref name="duration"/>.
         /// </summary>
         /// <param name="start">The start value.</param>

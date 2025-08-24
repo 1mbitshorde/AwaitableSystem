@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - InterpolateAsync function
 - WaitWhileAsync function
 - WaitUntilAsync function
+- WaitWhilePlayingAsync function
 - CHANGELOG
 - Package file
 - README
