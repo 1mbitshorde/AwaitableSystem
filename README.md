@@ -2,7 +2,7 @@
 
 * Utility code for Awaitable
 * Unity minimum version: **6000.1**
-* Current version: **1.0.0**
+* Current version: **1.1.0**
 * License: **MIT**
 
 ## How To Use
@@ -37,6 +37,8 @@ namespace YourCompany.YourGame.YourSystem
     }
 }
 ```
+
+Also, there is the `AwaitableUtility.WaitForSecondsRealtimeAsync()`.
 
 ### Lerp Functions
 
