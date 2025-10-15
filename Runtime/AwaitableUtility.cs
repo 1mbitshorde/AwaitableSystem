@@ -29,6 +29,21 @@ namespace ActionCode.AwaitableSystem
         }
 
         /// <summary>
+        /// Resumes execution after the specified number of seconds in real time, independent from <see cref="Time.timeScale"/>.
+        /// </summary>
+        /// <param name="time">Seconds to wait for</param>
+        /// <returns>An asynchronously operation.</returns>
+        public static async Awaitable WaitForSecondsRealtimeAsync(float time)
+        {
+            var currentTime = 0f;
+            while (currentTime < time)
+            {
+                await Awaitable.NextFrameAsync();
+                currentTime += Time.unscaledDeltaTime;
+            }
+        }
+
+        /// <summary>
         /// Waits asynchronously until the given animation is playing.
         /// </summary>
         /// <param name="animation">The playing animation.</param>
