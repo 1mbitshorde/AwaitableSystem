@@ -104,7 +104,7 @@ namespace ActionCode.AwaitableSystem
                 var value = setValue(step);
 
                 getValue?.Invoke(value);
-                currentTime += Time.deltaTime * speed;
+                currentTime += Time.unscaledDeltaTime * speed;
 
                 await Awaitable.NextFrameAsync();
             }
