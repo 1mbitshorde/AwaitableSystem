@@ -2,7 +2,7 @@
 
 * Utility code for Awaitable
 * Unity minimum version: **6000.1**
-* Current version: **1.1.0**
+* Current version: **1.2.0**
 * License: **MIT**
 
 ## How To Use
@@ -78,6 +78,8 @@ namespace YourCompany.YourGame.YourSystem
 Similarly, you can also Lerp colors using the overridden `LerpAsync(Color)` function.
 
 If you want to Lerp other values type, use the generic `AwaitableUtility.InterpolateAsync<T>()` function, providing the get and set value callbacks.
+
+> LerpAsyn functions use Unscaled Delta Time. Therefore, those functions will work when `Time.deltaTime == 0f` (the game is paused).
 
 ## Installation
 
