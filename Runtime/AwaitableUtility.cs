@@ -49,7 +49,7 @@ namespace OneM.AwaitableSystem
         /// <param name="animation">The playing animation.</param>
         /// <returns>An asynchronously operation.</returns>
         public static async Awaitable WaitWhilePlayingAsync(Animation animation) =>
-            await WaitWhileAsync(() => animation.isPlaying);
+            await WaitWhileAsync(() => animation && animation.isPlaying);
 
         /// <summary>
         /// Waits asynchronously for the given number of <paramref name="frames"/>
@@ -104,7 +104,7 @@ namespace OneM.AwaitableSystem
                 var value = setValue(step);
 
                 getValue?.Invoke(value);
-                currentTime += Time.deltaTime * speed;
+                currentTime += Time.unscaledDeltaTime * speed;
 
                 await Awaitable.NextFrameAsync();
             }
