@@ -1,13 +1,12 @@
 # Awaitable System
 
 * Utility code for Awaitable
-* Unity minimum version: **6000.1**
-* Current version: **1.1.0**
-* License: **MIT**
+* Unity minimum version: **6000.3**
+* Current version: **2.0.0**
 
 ## How To Use
 
-Just import the `ActionCode.AwaitableSystem` namespace and use any function from [AwaitableUtility](/Runtime/AwaitableUtility.cs) static class.
+Just import the `OneM.AwaitableSystem` namespace and use any function from [AwaitableUtility](/Runtime/AwaitableUtility.cs) static class.
 
 ### Wait Functions
 
@@ -15,7 +14,7 @@ Similar to `WaitUntil` and `WaitWhile` coroutines, you can use `WaitUntilAsync()
 
 ```csharp
 using UnityEngine;
-using ActionCode.AwaitableSystem;
+using OneM.AwaitableSystem;
 
 namespace YourCompany.YourGame.YourSystem
 {
@@ -46,7 +45,7 @@ You can asynchronously linear interpolate two numbers:
 
 ```csharp
 using UnityEngine;
-using ActionCode.AwaitableSystem;
+using OneM.AwaitableSystem;
 
 namespace YourCompany.YourGame.YourSystem
 {
@@ -88,6 +87,6 @@ You will need a **Git client** installed on your computer with the Path variable
 Manually modify you `Packages/manifest.json` file and add this line inside `dependencies` attribute: 
 
 ```json
-"com.actioncode.awaitable-system": "https://github.com/1mbitshorde/AwaitableSystem.git"
+"com.1mbitshorde.awaitable-system": "https://github.com/1mbitshorde/AwaitableSystem.git"
 ```
 ---

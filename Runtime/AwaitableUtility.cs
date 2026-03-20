@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ActionCode.AwaitableSystem
+namespace OneM.AwaitableSystem
 {
     /// <summary>
     /// Utility class for <see cref="Awaitable"/>.

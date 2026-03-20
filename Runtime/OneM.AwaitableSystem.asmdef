@@ -1,6 +1,6 @@
 {
-    "name": "ActionCode.AwaitableSystem",
-    "rootNamespace": "ActionCode.AwaitableSystem",
+    "name": "OneM.AwaitableSystem",
+    "rootNamespace": "OneM.AwaitableSystem",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
