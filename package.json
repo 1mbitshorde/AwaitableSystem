@@ -1,7 +1,7 @@
 {
   "name": "com.1mbitshorde.awaitable-system",
   "displayName": "1M Bits Horde-Awaitable System",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "unity": "6000.3",
   "description": "This package contains utility code for Awaitable.",
   "keywords": [
