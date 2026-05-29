@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using UnityEngine;
 
 namespace OneM.AwaitableSystem
@@ -109,6 +110,31 @@ namespace OneM.AwaitableSystem
                 await Awaitable.NextFrameAsync();
             }
             getValue?.Invoke(setValue(1F));
+        }
+
+        /// <summary>
+        /// Plays the given animation curve.
+        /// </summary>
+        /// <param name="curve">The animation curve to play.</param>
+        /// <param name="getValue">The get value function. Use it to get the Animation Curve value.</param>
+        /// <param name="token">The token to cancel the operation.</param>
+        /// <returns>An asynchronously operation.</returns>
+        public static async Awaitable PlayAnimationCurveAsync(AnimationCurve curve, Action<float> getValue, CancellationToken token)
+        {
+            var elapsed = 0f;
+            var totalTime = curve[curve.length - 1].time;
+
+            while (elapsed < totalTime)
+            {
+                if (token.IsCancellationRequested == true) return;
+
+                elapsed += Time.deltaTime;
+
+                var curveValue = curve.Evaluate(elapsed);
+                getValue?.Invoke(curveValue);
+
+                await Awaitable.NextFrameAsync(token);
+            }
         }
     }
 }
